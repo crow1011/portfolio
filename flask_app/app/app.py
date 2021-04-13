@@ -1,3 +1,4 @@
+from flask_restplus import Api
 from flask import Flask
 
 
@@ -8,9 +9,14 @@ def init_app():
     '''
     app = Flask(__name__, instance_relative_config=False)
     app.config.from_object("config.Config")
+    from api_v1 import blueprint as api1
 
-    from .passgen import passgen
     with app.app_context():
-
-        app.register_blueprint(passgen.mod_gen)
+        app.register_blueprint(api1)
     return app
+
+
+app = init_app()
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0")
