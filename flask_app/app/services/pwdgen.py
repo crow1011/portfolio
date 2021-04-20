@@ -47,16 +47,12 @@ class Password:
         if conf['pwd_length'] % 2 != 0:
             blocks.append(self._gen_single_block(conf))
 
-        print(syllables_count)
-        return blocks
+        random.shuffle(blocks)
+        pwd = ''.join(blocks)
+        return pwd
 
 
 
 
 
-import get_config
-conf = get_config.get_conf('pwdgen.yml')
-pwd = Password()
-tst = pwd.gen_pwd(conf)
-print(tst)
 
