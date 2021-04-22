@@ -6,6 +6,7 @@ BASEDIR = os.getcwd()
 conf_path = os.path.join(BASEDIR, 'conf')
 
 def get_conf(conf_name: str) -> dict :
+    ''' Get yml configuration from conf_path '''
     with open(os.path.join(conf_path, conf_name), 'r') as file:
         conf = yaml.load(file, Loader=yaml.FullLoader)
 

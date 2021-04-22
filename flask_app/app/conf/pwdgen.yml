@@ -15,7 +15,7 @@ use_upcase_consonants: True
 single_nums: '1234567890'
 single_letters: 'AEIOUYaeiouyBCDFGHJKLMNPQRSTVWXZbcdfghjklmnpqrstvwxz'
 single_symbols: "~`!@#$%^&*()-_+={}[]|\/:;\"'<>,.?"
-upcase_vowels: 'AEIOUY'
-lowcase_vowels: 'aeiouy'
-upcase_consonants: 'BCDFGHJKLMNPQRSTVWXZ'
-lowcase_consonants: 'bcdfghjklmnpqrstvwxz'
+syllable_upcase_consonants: 'AEIOUY'
+syllable_lowcase_consonants: 'aeiouy'
+syllable_upcase_vowels: 'BCDFGHJKLMNPQRSTVWXZ'
+syllable_lowcase_vowels: 'bcdfghjklmnpqrstvwxz'
