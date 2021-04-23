@@ -19,7 +19,7 @@ class Password:
             vowels += conf['syllable_upcase_vowels']
         if conf['use_syllable_lowcase_vowels']:
             vowels += conf['syllable_lowcase_vowels']
-        return secrets.choice(consonants) + secrets.choice(vowels)
+        return secrets.choice(vowels) + secrets.choice(consonants)
 
     def _gen_single_block(self, conf: dict) -> str:
         ''' Генерирует случайный символ '''
