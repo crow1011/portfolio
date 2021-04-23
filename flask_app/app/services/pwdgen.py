@@ -39,9 +39,7 @@ class Password:
         чтобы пароль легко было запонить
         """
         syllables_count = int((conf['pwd_length']  * conf['syllables_ratio']) // 2)
-        print('syllables_coun', syllables_count)
         single_count = conf['pwd_length'] -  (syllables_count * 2)
-        print('single_count', single_count)
         blocks = []
         for i in range(syllables_count):
             blocks.append(self._gen_syllabels_block(conf))
@@ -50,7 +48,6 @@ class Password:
 
         random.shuffle(blocks)
         pwd = ''.join(blocks)
-        print(len(pwd))
         return pwd
 
 
