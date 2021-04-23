@@ -35,21 +35,22 @@ class Password:
     def gen_pwd(self, conf: dict) -> str:
         """
         Генерирует пароль
-        логика генерации направлена на максимальное заданное соотношение слогов
+        логика генерации направлена на заданное соотношение слогов
         чтобы пароль легко было запонить
         """
-        syllables_count = int((conf['pwd_length'] // 2) * conf['syllables_ratio'])
+        syllables_count = int((conf['pwd_length']  * conf['syllables_ratio']) // 2)
+        print('syllables_coun', syllables_count)
         single_count = conf['pwd_length'] -  (syllables_count * 2)
+        print('single_count', single_count)
         blocks = []
         for i in range(syllables_count):
             blocks.append(self._gen_syllabels_block(conf))
         for i in range(single_count):
             blocks.append(self._gen_single_block(conf))
-        if conf['pwd_length'] % 2 != 0:
-            blocks.append(self._gen_single_block(conf))
 
         random.shuffle(blocks)
         pwd = ''.join(blocks)
+        print(len(pwd))
         return pwd
 
 
