@@ -7,10 +7,10 @@ syllables_ratio: 0.8
 use_single_nums: True   
 use_single_letters: True
 use_single_symbols: True
-use_lowcase_vowels: True
-use_upcase_vowels: True
-use_lowcase_consonants: True
-use_upcase_consonants: True
+use_syllable_lowcase_vowels: True
+use_syllable_upcase_vowels: True
+use_syllable_lowcase_consonants: True
+use_syllable_upcase_consonants: True
 # hardcode
 single_nums: '1234567890'
 single_letters: 'AEIOUYaeiouyBCDFGHJKLMNPQRSTVWXZbcdfghjklmnpqrstvwxz'

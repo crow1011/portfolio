@@ -1,35 +1,36 @@
 import random
+import secrets
+
 
 class Password:
     """ Генерирует пароль по параметрам """
     def __init__(self):
        pass
 
-    def _gen_syllabels_block(self, conf: dict):
+    def _gen_syllabels_block(self, conf: dict) -> str:
+        '''Генерирует случайный слог по заданным параметрам '''
         vowels = ''
         consonants = ''
-        if conf['use_lowcase_consonants']:
-            consonants += conf['upcase_consonants']
-        if conf['use_lowcase_consonants']:
-            consonants += conf['lowcase_consonants']
-        if conf['use_lowcase_vowels']:
-            vowels += conf['upcase_vowels']
-        if conf['use_lowcase_vowels']:
-            vowels += conf['lowcase_vowels']
-        rand_vowel = random.randint(0, len(vowels) - 1)
-        rand_consonant = random.randint(0, len(consonants) - 1)
-        return consonants[rand_consonant] + vowels[rand_vowel]
+        if conf['use_syllable_lowcase_consonants']:
+            consonants += conf['syllable_upcase_consonants']
+        if conf['use_syllable_lowcase_consonants']:
+            consonants += conf['syllable_lowcase_consonants']
+        if conf['use_syllable_lowcase_vowels']:
+            vowels += conf['syllable_upcase_vowels']
+        if conf['use_syllable_lowcase_vowels']:
+            vowels += conf['syllable_lowcase_vowels']
+        return secrets.choice(consonants) + secrets.choice(vowels)
 
-    def _gen_single_block(self, conf: dict):
-        charters = ''
+    def _gen_single_block(self, conf: dict) -> str:
+        ''' Генерирует случайный символ '''
+        characters = ''
         if conf['use_single_nums']:
-            charters += conf['single_nums']
+            characters += conf['single_nums']
         if conf['use_single_letters']:
-            charters += conf['single_letters']
+            characters += conf['single_letters']
         if conf['use_single_symbols']:
-            charters += conf['single_symbols']
-        rand_charter = random.randint(0, len(charters) - 1)
-        return charters[rand_charter]
+            characters += conf['single_symbols']
+        return secrets.choice(characters)
 
     def gen_pwd(self, conf: dict) -> str:
         """
@@ -50,9 +51,5 @@ class Password:
         random.shuffle(blocks)
         pwd = ''.join(blocks)
         return pwd
-
-
-
-
 
 
