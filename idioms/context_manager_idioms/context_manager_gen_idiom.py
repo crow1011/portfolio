@@ -15,10 +15,11 @@ def context_timer() -> None:
         print('Total: ', time.time() - start_time)
 
 
-with context_timer() as timer:
-    print('# Start')
+if __name__ == '__main__':
+    with context_timer() as timer:
+        print('# Start')
 
-    print('# Sleep 3s')
-    time.sleep(3)
+        print('# Sleep 3s')
+        time.sleep(3)
 
-    print('# Print total')
+        print('# Print total')
