@@ -19,3 +19,6 @@ syllable_upcase_consonants: 'AEIOUY'
 syllable_lowcase_consonants: 'aeiouy'
 syllable_upcase_vowels: 'BCDFGHJKLMNPQRSTVWXZ'
 syllable_lowcase_vowels: 'bcdfghjklmnpqrstvwxz'
+# list passwords configuration
+def_pwd_count: 13
+max_pwd_count: 42

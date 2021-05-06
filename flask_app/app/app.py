@@ -1,22 +1,24 @@
+from flask import Flask, Blueprint
 from flask_restplus import Api
-from flask import Flask
 
 
-def init_app():
-    '''
-    Настройка app перед запуском
-    Должна возвращать app
-    '''
-    app = Flask(__name__, instance_relative_config=False)
-    app.config.from_object("config.Config")
-    from api_v1 import blueprint as api1
-
-    with app.app_context():
-        app.register_blueprint(api1)
-    return app
+from resources.pwdgen import (
+        pwdgen_ns, GenPassword, pwdgen_list_ns, GenListPassword
+        )
 
 
-app = init_app()
+app = Flask(__name__)
+bluePrint = Blueprint('api', __name__, url_prefix='/api')
+api = Api(bluePrint, doc='/doc', title='Sample Flask-RestPlus Application')
+
+app.register_blueprint(bluePrint)
+
+api.add_namespace(pwdgen_ns)
+api.add_namespace(pwdgen_list_ns)
+
+
+pwdgen_ns.add_resource(GenPassword, "")
+pwdgen_list_ns.add_resource(GenListPassword, "<int:pwd_count>")
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0")
+    app.run(port=5000, debug=True)
