@@ -19,17 +19,18 @@ class ContextTimer:
         return time.time() - self.start_time
 
 
-with ContextTimer() as timer:
-    print('# Start')
+if __name__ == '__main__':
+    with ContextTimer() as timer:
+        print('# Start')
 
-    print('# Sleep 1s')
-    time.sleep(1)
-    print('# Check timer')
-    print(timer())
+        print('# Sleep 1s')
+        time.sleep(1)
+        print('# Check timer')
+        print(timer())
 
-    print('# Sleep 2s')
-    time.sleep(2)
-    print('# Check timer')
-    print(timer())
+        print('# Sleep 2s')
+        time.sleep(2)
+        print('# Check timer')
+        print(timer())
 
-    print('# Print total')
+        print('# Print total')
