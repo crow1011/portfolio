@@ -89,3 +89,7 @@ colorscheme OceanicNext
 set paste
 set relativenumber
 set number
+
+" save and execute python file on F9
+autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+autocmd FileType python imap <buffer> <F9> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
