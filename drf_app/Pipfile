@@ -4,8 +4,9 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-django = "==3.2.7"
-django-rest-framework = "==3.12.4"
+django = "*"
+django-rest-framework = "*"
+python-dotenv = "*"
 
 [dev-packages]
 
